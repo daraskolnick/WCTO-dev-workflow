@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Levelling up your WordPress development workflow</title>
+
+		<meta name="author" content="Dara Skolnick">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="img/swirl.jpg" data-background-repeat="repeat" data-state="white-text">
+					<h2>Levelling up your WordPress development workflow</h2>
+					<h4>with @daraskolnick</h4>
+					<!-- <h3>HTML Presentations Made Easy</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p> -->
+				</section>
+
+				<section>
+					<section>
+						<h2>Hi, I'm Dara.</h2>
+						<h2>Nice to meet you!</h2>
+							<p>
+								I'm @daraskolnick basically everywhere on the Internet.
+							</p>
+					</section>
+					<section>
+						<h2>A little about me.</h2>
+						<h4>I...</h4>
+						<ul>
+							<li class="fragment">live in Toronto</li>
+							<li class="fragment">work as web designer &amp; front end developer</li>
+							<li class="fragment">have been developing WP themes for 9 years</li>
+							<li class="fragment">run my own small business</li>
+							<li class="fragment">lead Ladies Learning Code workshops &amp; mentor at HackerYou</li>
+							<li class="fragment">am a first time WordCamp speaker!</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<h2>This talk is aimed at:</h2>
+					<h3>WordPress theme developers who create custom (parent) themes</h3>
+					<p class="fragment">Suggestions can apply to either solo devs or teams.</p>
+				</section>
+
+				<section>
+					<h1>So, why is having a good workflow so important?</h1>
+				</section>
+
+				<section>
+					<h2><strong>1. You can automate lots of non-fun tasks</strong></h2>
+					<h3 class="fragment">Who loves compressing images, linting code, and creating sprites?</h3>
+					<h4 class="fragment">Anyone?</h4>
+				</section>
+
+				<section data-background="img/clock2.jpg" data-state="white-text">
+					<h2><strong>2. A good workflow saves you time.</strong></h2>
+				</section>
+
+				<section data-background="img/monopoly-bills.jpg" data-state="white-text">
+					<h2>Time = $$</h2>
+				</section>
+
+				<section data-background="img/freedom.jpg" data-state="white-text">
+					<h2>But more importantly...</h2>
+					<h2 class="fragment"><strong>Time = freedom</strong></h2>
+				</section>
+
+				<!-- <section data-background="img/camera-keys.jpg" data-state="white-text"> -->
+				<section>
+					<h2>WordPress dev is great, of course...</h2>
+					<h3 class="fragment">but having the time to pursue other things in life is also pretty great.</h2>
+				</section>
+
+				<section>
+					<h2><strong>3. You can apply the best, sexiest front-end dev practices to WordPress theming</strong></h2>
+				</section>
+
+				<section>
+					<h3>If you've ever wondered...</h3>
+					<img src="img/sass-wp.png" class="noborder" alt="">
+					<h3 class="fragment">Then this talk is for you!</h3>
+				</section>
+
+				<section>
+					<h1>Standard Disclaimer</h1>
+					<h3>There's no right way to do front-end development — this is just one way.</h3>
+				</section>
+
+				<section data-background="img/eggzzz.gif">
+					<h3 class="label"><span>Devs have a lot of opinions/feels about the "right" way to do things</span></h3>
+				</section>
+
+				<section>
+					<h3>Don't be intimidated by needing to use the "right" tools — see what works best for you.</h3>
+				</section>
+
+				<section>
+					<h1>Second Disclaimer</h1>
+					<h3>Most of the not-so-good dev practices I'll talk about come from first hand experience.</h3>
+				</section>
+
+				<section data-background="img/swirl2teal.jpg" data-state="white-text">
+					<h1>Workflow improvement #1</h1>
+					<h2>Developing locally</h2>
+				</section>
+
+				<section>
+					<h2>Why develop locally?</h2>
+					<ul>
+						<li class="fragment">No White Screen of Death™ on a client's live site</li>
+						<li class="fragment">Local sites load more quickly</li>
+						<li class="fragment">No embarrassment <s>if</s> when you eff things up</li>
+						<li class="fragment">Allows you to use version control<br><small class="fragment">You're using version control, right? Right?</small></li>
+						<li class="fragment">You can use task runners, CSS preprocessors, etc.</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h3>If you're still doing this...</h3>
+						<img src="img/wp-editor.jpg" alt="">
+					</section>
+					<section>
+						<h3>If you're still doing this...</h3>
+						<img src="img/wp-editor-dont.jpg" alt="">
+						<h3>We need to talk.</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>My local dev process:</h2>
+						<ol>
+							<li class="fragment">Develop the entire website locally</li>
+							<li class="fragment">Along the way, commit changes to git and push to Bitbucket</li>
+							<li class="fragment">Copy local site to staging server</li>
+							<li class="fragment">Copy staging site to client's server</li>
+							<li class="fragment"><s>If</s> when changes are needed after initial development, <strong>make them on the local copy</strong> and push them to staging, and then live.</li>
+						</ol>
+					</section>
+					<section>
+						<h2>My local dev process:</h2>
+						<ul>
+							<li><strong>At no point am I ever making changes directly to the live site.</strong></li>
+							<li class="fragment">When you make all changes on your local copy first, you don't have to keep track of which codebase is the latest/correct version.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>My Local dev environment of choice:</h2>
+						<img src="img/mamp.png" class="noborder" alt="">
+						<p><a href="http://www.mamp.info/en/">MAMP/MAMP Pro</a> (Mac + Windows)</p>	
+					</section>
+					<section>
+						<h3>Other similar options:</h3>
+							<ul>
+								<li><a href="https://www.apachefriends.org/index.html">XAMPP</a> (Mac, Windows and Linux)</li>
+								<li><a href="http://www.ampps.com/">AMPPS</a> (Mac, Windows, Linux)</li>
+							</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>What MAMP does</h2>
+					<ul>
+						<li class="fragment">the "AMP" in MAMP/XAMPP/AMPPS stands for <strong>Apache</strong>, <strong>MySQL</strong> and <strong>PHP</strong></li>
+						<li class="fragment">MySQL and PHP are required to run WP and Apache is highly recommended.</li>
+						<li class="fragment">Replicates setup of common web hosts on your computer</li>
+						<li class="fragment">Free MAMP gives you a local server located at <strong>http://localhost:8888</strong></li>
+						<li class="fragment">MAMP Pro lets you assign custom domain names to each local site (e.g. <strong>http://sitename.dev</strong>)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Setting up your first local WordPress site</h2>
+					<p><strong>Installing WordPress with MAMP is as easy as...</strong></p>
+					<ol>
+						<li class="fragment">Downloading WordPress and putting it in the folder that MAMP is watching</li>
+						<li class="fragment">Setting up a new database in phpMyAdmin (also conveniently bundled with MAMP)</li>
+						<li class="fragment">Editing wp-config.php to point at the database you just created</li>
+						<li class="fragment">Congrats, friend! You now have a WordPress site running on your computer.</li>
+					</ol>
+					<p class="fragment"><strong>For more detailed instructions, <a href="http://css-tricks.com/video-screencasts/86-mamp/">CSS Tricks has a great screencast on this very topic</a>.</strong></p>
+				</section>
+
+				<section data-background="img/swirl2teal.jpg" data-state="white-text">
+					<h1>Workflow improvement #2</h1>
+					<h2>Using a starter theme</h2>
+				</section>
+
+				<section>
+					<h2>Time-wasting ways to start custom themes include:</h2>
+					<ul>
+						<li class="fragment">Coding your theme from scratch</li>
+						<li class="fragment">Using an old theme of yours as a starter theme</li>
+						<li class="fragment">Using a default theme (like twentyfourteen) as a starter theme</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><strong>Time waster #1:</strong><br>Coding your theme from scratch</h3>
+					<ul>
+						<li>Extremely repetitive</li>
+						<li>Extremely time consuming</li>
+						<li>Too much time on gruntwork and less on interesting work</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><strong>Time wasters #2 + 3:</strong><br>Using a finished theme (yours or WP's) as your starter theme</h3>
+					<ul>
+						<li>Lots of time spent undoing old work (either yours or someone else's)</li>
+						<li>Easy to make poor coding decisions based on laziness/what's already there</li>
+						<li>Often end up with a lot of code bloat when stuff from the old theme that's irrelevant to yours sticks around</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><strong>The better way:</strong><br>Use a real starter theme!</h3>
+					<p>A starter theme is a barebones theme that acts as a foundation for your custom theme.</p>
+				</section>
+
+				<section>
+						<h3>A few popular starter themes</h3>
+						<ul>
+							<li><a href="http://underscores.me/">Underscores</a> (made by Automattic)</li>
+							<li><a href="http://roots.io/starter-theme/">Roots</a></li>
+							<li><a href="http://themble.com/bones/">Bones</a></li>
+						</ul>
+				</section>
+
+				<section>
+					<section>
+						<h3>Underscores starts off like this:</h3>
+						<img src="img/themeUnderscores.jpg" class="noborder" alt="">
+					</section>
+					<section>
+						<h3>Basic file structure is taken care of for you.</h3>
+						<img src="img/underscores-files.jpg" class="noborder" width="300">
+					</section>
+					<section>
+						<h3>A good starter theme will also take care of things like:</h3>
+						<ul>
+							<li class="fragment">Basic CSS for WordPress functionality you may forget about (say, image alignment classes and galleries)</li>
+							<li class="fragment">Functions for common theme tasks (like setting up menus and widget areas)</li>
+							<li class="fragment">Adhering to <a href="https://make.wordpress.org/core/handbook/coding-standards/">WordPress coding standards</a> (Underscores is especially good with this for obvious reasons)</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Starter themes FTW!</h2>
+					<h3>The tedious stuff is done for you and there's little to no styling to undo.</h3>
+				</section>
+
+				<section data-background="img/g013_stunned_cat_open_mouth.gif">
+					<h3 class="label"><span>What if I told you we could take that one step further?</span></h3>
+					<!-- <img src="img/g013_stunned_cat_open_mouth.gif" class="fragment noborder" alt=""> -->
+				</section>
+
+				<section>
+					<h2>The best starter theme...</h2>
+					<div class="fragment">
+						<h3>Is your own, personalized starter theme!</h3>
+						<p>No one knows your own coding style as well as you do.</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>My starter theme is based on Underscores and contains:</h3>
+					<ul>
+						<li>A customized functions.php file with all my commonly used functions</li>
+						<li>A starter script.js file with a few starter functions that most themes use</li>
+						<li>All my Sass partials set up as I like them with some useful variables and mixins</li>
+						<li>My latest <strong>gulpfile.js</strong> and <strong>package.json</strong> (more on that in a minute)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>2 example functions in my custom starter theme's functions.php file</h3>
+					<pre><code class="php" data-trim>
+/**
+ * Media - set default image link location to 'None' 
+ */
+
+update_option('image_default_link_type','none');
+
+/**
+ * Always Show Kitchen Sink in WYSIWYG Editor
+ */
+
+function unhide_kitchensink( $args ) {
+	$args['wordpress_adv_hidden'] = false;
+	return $args;
+}
+
+add_filter( 'tiny_mce_before_init', 'unhide_kitchensink' );
+						</code></pre>
+				</section>
+
+				<section>
+					<h3>Where do I keep my starter theme?</h3>
+					<p>There's no better place to store your starter theme than <strong><a href="https://github.com/">GitHub</a></strong> or <strong><a href="https://bitbucket.org/">Bitbucket</a></strong>.</p>
+				</section>
+
+				<section>
+					<h3>Now, starting a new WordPress project is as easy as:</h3>
+					<ol>
+						<li class="fragment">Downloading WordPress and setting it up in MAMP/XAMPP/AMPPS/thing that contains 'AMP'</li>
+						<li class="fragment">Cloning your starter theme (or a fork of it) into <strong>/wp-content/themes/</strong></li>
+						<li class="fragment">Logging into your new site's dashboard and activating your starter theme</li>
+						<li class="fragment">Git coding! <em class="fragment">Git it? Version control jokes are super cool.</em></li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Never used Git before? No worries!</h2>
+					<p>I'll be talking more about it a little later and will give you some good starter resources.</p>
+				</section>
+
+				<section data-background="img/swirl2teal.jpg" data-state="white-text">
+					<h1>Workflow improvement #3</h1>
+					<h2>Getting a task runner to do the boring stuff</h2>
+				</section>
+
+				<section>
+					<h3>Some of my favourite development tasks include:</h3>
+					<ul>
+						<li class="fragment">Remembering which browser prefixes to use in CSS</li>
+						<li class="fragment">Compressing my images</li>
+						<li class="fragment">Linting and minifying JS files</li>
+						<li class="fragment">Creating sprites</li>
+						<li class="fragment">Constantly refreshing my browser</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="img/not.jpg" alt="" class="noborder" width="500">
+				</section>
+
+				<section>
+					<h2>The solution</h2>
+					<img src="img/gulpjs.png" alt="" class="noborder middle gulp">
+					<span class="slash">/</span>
+					<img src="img/gruntjs.png" alt="" class="noborder middle">
+				</section>
+
+				<section>
+					<h2>What are Grunt and Gulp?</h2>
+					<p class="fragment">Built on <img src="img/nodejs.png" alt="" width="300" class="noborder middle"></p>
+					<pre class="fragment" style="margin-bottom:50px;"><code>$ Run on the command line</code></pre>
+					<p class="fragment">Use plugins to run tasks</p>
+				</section>
+
+				<section>
+					<h2>Grunt or Gulp?</h2>
+				</section>
+
+				<section data-background="img/eggzzz.gif">
+					<h2 class="label"><span>Devs love to argue</span></h2>
+				</section>
+
+				<section>
+					<h2>I personally use Gulp.</h2>
+					<h3>you have my blessing to use either one.</h3>
+				</section>
+
+				<section>
+					<h3>Task runners perform tasks that you configure in your <strong>gulpfile.js</strong>.</h3>
+				</section>
+
+				<section>
+					<h2>Gulp runs in your theme directory.</h2>
+					<h3>All you need is a <strong>gulpfile.js</strong> and a <strong>package.json</strong>.</h3>
+				</section>
+
+				<section>
+					<h3>My starter theme's files</h3>
+					<img src="img/ds-starter-files.png" alt="" class="noborder" width="300">
+				</section>
+
+				<section>
+					<h1>A few example Gulp tasks</h1>
+				</section>
+
+				<section>
+					<h2>CSS tasks</h2>
+<pre><code>
+gulp.task('sass', function() {
+    return gulp.src('style/style.scss')
+      .pipe(sass())
+      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+      .pipe(minifycss())
+      .pipe(gulp.dest(''))
+});
+</code></pre>
+				</section>
+
+				<section data-background="img/tKjhHLe.gif"></section>
+
+				<section>
+					<h3>In plain English</h3>
+					<ul>
+						<li>Gulp takes our Sass file...</li>
+						<li class="fragment">Turns it in to regular CSS</li>
+						<li class="fragment">Runs it through <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>...</li>
+						<li class="fragment">Minifies the CSS...</li>
+						<li class="fragment">And, finally, saves the CSS file.</li>
+						<li class="fragment">(All in a matter of milliseconds.)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>CSS tasks</h2>
+				<pre><code>
+gulp.task('sass', function() {
+    return gulp.src('style/style.scss')
+      .pipe(sass())
+      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+      .pipe(minifycss())
+      .pipe(gulp.dest(''))
+});
+				</code></pre>
+				</section>
+
+				<section>
+					<img src="img/autoprefixer.svg" alt="" class="noborder">
+					<h3>Autoprefixer</h3>
+				</section>
+
+				<section>
+					<h3>Takes this...</h3>
+<pre><code class="css">
+.thing-with-columns {
+	column-count: 3;
+	column-gap: 40px;
+}
+
+</code></pre>
+					<h3 class="fragment">...checks caniuse.com for browser support...</h3>
+				</section>
+
+				<section>
+					<h3>And gives you this.</h3>
+<pre><code class="css">
+.thing-with-columns {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+	-webkit-column-gap: 40px;
+	-moz-column-gap: 40px;
+	column-gap: 40px
+}
+
+</code></pre>					
+				</section>
+
+				<section>
+					<h2>How to run the task</h2>
+					<p>Type <code>gulp sass</code> in your Terminal window.</p>
+				</section>
+
+				<section>
+					<h2>JavaScript linting</h2>
+					<pre><code>
+gulp.task('lint', function() {
+    return gulp.src('js/script.js')
+       .pipe(jshint())
+       .pipe(jshint.reporter('default'));
+});
+					</code></pre>
+
+				</section>
+
+				<section>
+					<img src="img/gulp-lint.png" alt="" class="noborder">
+				</section>
+
+				<section>
+
+				<h2>JS concatenation + minification</h2>
+					<pre><code>
+gulp.task('scripts', function() {
+    return gulp.src(['js/plugins.js', 'js/script.js'])
+        .pipe(concat('script.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('js'));
+});
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h2>Image compression</h2>
+					<pre><code>
+gulp.task('images', function() {
+    var imgSrc = 'img/source/*';
+    var imgDest = 'img';
+
+  return gulp.src(imgSrc)
+    .pipe(newer(imgDest))
+    .pipe(imagemin())
+    .pipe(gulp.dest(imgDest));
+
+  });
+					</code></pre>
+				</section>
+
+				<!-- <section>
+					<h3>Using sprites in your (s)css</h3>
+					<ul>
+						<li class="fragment">Include the <strong>_sprites.scss</strong> partial in your <strong>style.scss</strong> file</li>
+						<li class="fragment">Write <strong>@include sprite($name-of-image);</strong></li>
+						<li class="fragment">That's it. There is no step 3.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Sprites before Gulp</h3>
+<pre><code class="css">
+	.site-title a {
+	    background-image: url(img/sprite.png);
+	    background-position: -314px -159px;
+	    width: 300px;
+	    height: 100px;
+	}
+
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Sprites after Gulp</h3>
+<pre><code class="scss">
+	.site-title a {
+	    @include sprite($logo);
+	}
+	
+</code></pre>
+				</section> -->
+
+				<section>
+					<h2>But I saved the best task for last</h2>
+					<h3 class="fragment">Typing <code>gulp sass</code>, <code>gulp lint</code>, <code>gulp scripts</code>, and <code>gulp images</code> over and over would sure get annoying, right?</h3>
+				</section>
+
+				<section>
+					<h2>My BFF, the Watch task</h2>
+<pre><code>
+    gulp.task('watch', function() {
+	 
+      // Listen on port 35729
+      server.listen(35729, function (err) {
+          if (err) {
+              return console.log(err)
+          };
+
+          // Watch .js files
+          gulp.watch('js/*.js', ['lint', 'scripts']);
+
+          // Watch .scss files
+          gulp.watch('**/*.scss', ['sass']);
+
+          // Watch image files
+          gulp.watch('img/source/*', ['images']);
+	 
+      });
+	 
+    });
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Watches for your changes...</h3>
+					<h3 class="fragment">...runs the appropriate tasks...</h3>
+					<h3 class="fragment">... and uses LiveReload to automatically refresh your browser.</h3>
+				</section>
+
+				<section data-background="img/blown-mind-explosion-gif.gif">
+					
+				</section>
+
+				<section>
+					<h2>But... what if I'm scared of the command line?</h2>
+				</section>
+
+				<section>
+					<img src="img/codekit-icon@2x.png" alt="" class="noborder" width="400">
+					<h3>CodeKit (Mac only)</h3>
+				</section>
+
+				<section>
+					<img src="img/prepros.jpg" alt="" class="noborder" width="800">
+					<h3>Prepros<br>(Mac, Windows and Linux)</h3>
+				</section>
+
+				<section>
+					<h3>GUIs can be a great place to start</h3>
+					<img src="img/codekit.jpg" alt="" class="noborder" width="450">
+				</section>
+
+				<section>
+					<h3>Like Gulp/Grunt, CodeKit or Prepros watches your <strong>theme directory</strong></h3>
+				</section>
+
+				<section>
+					<h2>Gulp resources</h2>
+					<ul>
+						<li><a href="http://markgoodyear.com/2014/01/getting-started-with-gulp/">Getting started with gulp</a></li>
+						<li><a href="http://www.sitepoint.com/introduction-gulp-js/">An Introduction to Gulp.js</a></li>
+						<li><a href="http://mattbanks.me/gulp-wordpress-development/">Using Gulp for WordPress Theme Development</a></li>
+						<li><a href="http://synapticism.com/wordpress-theme-development-with-gulp-bower-and-sass/">WordPress theme development with Gulp, Bower, and Sass</a> </li>
+					</ul>
+				</section>
+
+				<section data-background="img/swirl2teal.jpg" data-state="white-text">
+					<h1>Workflow improvement #4</h1>
+					<h2>CSS Preprocessing</h2>
+				</section>
+
+				<section style="position:relative;">
+					<img src="img/sass-logo.png" alt="" class="noborder">
+					<div class="heart heart1 fragment">&hearts;</div>
+					<div class="heart heart2 fragment">&hearts;</div>
+					<div class="heart heart3 fragment">&hearts;</div>
+					<div class="heart heart4 fragment">&hearts;</div>
+					<div class="heart heart5 fragment">&hearts;</div>
+				</section>
+
+				<section>
+
+					<h2>Variables</h2>
+					<h4>Plain ol' CSS</h4>
+<pre><code class="css">
+	.container {
+	    max-width: 980px;
+	}
+
+	a {
+	    color: #b4c43d;
+	    font-family: 'Gotham A', 'Gotham B', sans-serif;
+	}
+
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Variables</h2>
+					<h4>Sass</h4>
+<pre><code class="scss">
+	// Fonts
+	$gotham: 'Gotham A', 'Gotham B', sans-serif;
+
+	// Global information
+	$pageWidth: 980px;
+	$fontSize: 16px;
+
+	// Colours
+	$green: #b4c43d;
+	$teal: #73c6ba;
+	$brown: #563016;
+
+</code></pre>
+				</section>
+
+				<section>
+
+					<h2>Variables</h2>
+					<h4>Sass</h4>
+<pre><code class="css">
+	.container {
+	    max-width: $pageWidth;
+	}
+
+	a {
+	    color: $green;
+	    font-family: $gotham;
+	}
+
+</code></pre>
+					
+				</section>
+
+				<section>
+					<h2>Nesting</h2>
+					<h4>Plain ol' CSS</h4>
+
+<pre><code class="css">
+	.main-navigation {
+	    display: block;
+	}
+
+	.main-navigation ul {
+	    list-style: none;
+	}
+	    
+	.main-navigation li {
+	    float: left;
+	}
+	    
+	.main-navigation a {
+	    color: #b4c43d;
+	}
+
+	.main-navigation a:hover {
+	    color: #73c6ba;
+	}
+
+</code></pre>					
+				</section>
+
+				<section>
+					<h2>Nesting</h2>
+					<h4>Sass</h4>
+
+<pre><code class="scss">
+	.main-navigation {
+	    display: block;
+	    ul {
+	        list-style: none;
+	    }
+	    li {
+	        float: left;
+	    }
+	    a {
+	        color: $green;
+	        &:hover {
+	            color: $teal;
+	        }
+	    }
+	}
+
+</code></pre>					
+				</section>
+
+				<section>
+					<h2>Partials</h2>
+					<h3>Divide your styles into logical sections</h3>
+				</section>
+
+				<section>
+					<h2>Partials</h2>
+<pre><code data-trim class="scss">/*!
+Theme Name: Super Awesome Theme
+Theme URI: http://fakeyfake.fake
+Author: Dara Skolnick
+Author URI: http://daraskolnick.com
+Description: The fakest theme in all the land
+*/
+
+@import "partials/reset";
+
+@import "partials/variables";
+
+@import "partials/global";
+
+@import "partials/forms";
+
+@import "partials/nav";
+
+@import "partials/pages";
+
+@import "partials/posts";
+
+@import "partials/widgets";	
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Math</h2>
+					<h4>Plain ol' CSS</h4>
+<pre><code class="css">
+	.sidebar {
+	    width: 36.734693878%; /* 360px / 980px */
+	    font-size: 1.25em; /* 20px / 16px */
+	}
+
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Math</h2>
+					<h4>Sass</h4>
+<pre><code class="css">
+	.sidebar {
+	    width: 360px / 980px * 100%;
+	    font-size: 20px / 16px * 1em;
+	}
+
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Math</h2>
+					<h4>Sass</h4>
+<pre><code class="css">
+	.sidebar {
+	    width: 360px / $pageWidth * 100%;
+	    font-size: 20px / $fontSize * 1em;
+	}
+
+</code></pre>
+				</section>
+
+
+				<section data-background="img/cookie-monster-cookies-surprise.gif">
+					<!-- <h2 class="label"><span>Me upon integrating Sass with WP</span></h2> -->
+				</section>
+
+				<section data-background="img/swirl2teal.jpg" data-state="white-text">
+					<h1>Workflow improvement #5</h1>
+					<h2>Deploying with Git</h2>
+				</section>
+
+				<section>
+					<h2>Before Git...</h2>
+					<div class="fragment">
+						<img src="img/ftp.png" alt="" class="noborder" width="500">
+						<h3>...deploying sites and making changes via FTP was a big pain.</h3>
+					</div>
+				</section>
+
+				<section>
+					<h2>Hey! what's wrong with FTP?</h2>
+					<h4 class="fragment">So glad you asked!</h4>
+					<ul>
+						<li class="fragment">Sooooo slow</li>
+						<li class="fragment">Easy to forget which files need updating</li>
+						<li class="fragment">Tempting to make changes directly on the server</li>
+						<li class="fragment">Therefore easy to get your local + remote copies out of sync</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Deploying with Git</h2>
+<pre><code>
+  $ git add -A // adds all your changed files
+  $ git commit -m "A message describing the changes you made"
+  $ git push remote-name master // pushes your files to GitHub/Bitbucket/your site
+
+</code></pre>
+					<p><em>Most projects of mine have three remotes: origin (Bitbucket), staging (my dev server) and live (client's server).</em></p>					
+				</section>
+
+				<section>
+					<h3>This is awesome because:</h3>
+					<ul>
+						<li class="fragment">Really easy (once you're used to it)</li>
+						<li class="fragment">Very quick</li>
+						<li class="fragment">Never have to remember which files you changed</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Okay, so how do I set it up?</h3>
+				</section>
+
+				<section>
+					<h3>A few options</h3>
+					<ol>
+						<li>Choose a host with Git support built in (e.g. <a href="http://wpengine.com/">WP Engine</a>)</li>
+						<li>If you're using a more average host, use a service like <a href="https://www.deployhq.com/">Deploy</a> or <a href="http://beanstalkapp.com/">Beanstalk</a> that FTPs changed files for you when you push to Git</li>
+						<li>If your web host allows SSH access, set it up yourself via command line (e.g. <a href="http://www.arlocarreon.com/blog/git/push-git-repo-into-shared-hosting-account-like-hostgator/">Hostgator</a>, <a href="https://www.youtube.com/watch?v=2q8cW9mQtOM">Bluehost</a>)</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>But I have no idea how to use Git - how do I start?</h2>
+				</section>
+
+				<section>
+					<h3>Resources for beginners:</h3>
+					<ul>
+						<li><a href="http://www.git-tower.com/learn/">Learn Version Control with Git</a></li>
+						<li><a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a></li>
+						<li><a href="https://try.github.io/levels/1/challenges/1">tryGit</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>If GUIs are more your style</h3>
+					<ul>
+						<li> <a href="https://mac.github.com/">GitHub for Mac</a> / <a href="https://windows.github.com/">GitHub for Windows</a> (free, and can be used with non-GitHub remotes)</li>
+						<li><a href="http://www.git-tower.com/">Tower</a> ($, Mac only)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>If deploying with Git seems too complex for now...</h3>
+					<p>Consider storing your client projects in private repositories to start.</p>
+				</section>
+
+				<section>
+					<img src="img/bitbucket-loggedout.png" alt="" class="noborder">
+					<h4>My Bitbucket account - public view</h4>
+				</section>
+
+				<section>
+					<img src="img/bitbucket-loggedin.jpg" alt="" class="noborder">
+					<h4>My Bitbucket account - logged in</h4>
+				</section>
+
+				<section data-background="img/drunk-cat-o.gif">
+					<h3 class="label"><span>You might be feeling like this right now</span></h3>
+				</section>
+
+				<section>
+					<h2>Feeling overwhelmed?</h2>
+					<ul>
+						<li class="fragment">Don't worry about doing everything at once</li>
+						<li class="fragment">Even the smallest workflow tweaks will save time</li>
+					</ul>
+				</section>
+
+				<!-- <section>
+					<blockquote>
+						Be not afraid of going slowly; be afraid only of standing still<br>
+						<small>Chinese proverb</small>
+					</blockquote>
+				</section> -->
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+				<section data-background="img/swirl.jpg" data-background-repeat="repeat" data-state="white-text">
+					<h1>Thanks!</h1>
+					<h4 style="margin-top:100px;"><a style="color:white;" href="http://twitter.com/daraskolnick">@daraskolnick</a></h4>
+					<h4><a style="color:white;" href="http://daraskolnick.com">daraskolnick.com</a></h4>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
