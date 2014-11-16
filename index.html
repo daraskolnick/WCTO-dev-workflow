@@ -115,11 +115,17 @@
 				<section>
 					<h3>If you've ever wondered...</h3>
 					<img src="img/sass-wp.png" class="noborder" alt="">
+					<h3>&nbsp;</h3>
+				</section>
+
+				<section>
+					<h3>If you've ever wondered...</h3>
+					<img src="img/git-wp.png" class="noborder" alt="">
 					<h3 class="fragment">Then this talk is for you!</h3>
 				</section>
 
 				<section>
-					<h1>Standard Disclaimer</h1>
+					<h1>First Disclaimer</h1>
 					<h3>There's no right way to do front-end development — this is just one way.</h3>
 				</section>
 
@@ -338,6 +344,11 @@ add_filter( 'tiny_mce_before_init', 'unhide_kitchensink' );
 				</section>
 
 				<section>
+					<h3>Another custom starter bonus</h3>
+					<p>You can bake in more accessibility feature than you'll find in standard starters.</p>
+				</section>
+
+				<section>
 					<h3>Where do I keep my starter theme?</h3>
 					<p>There's no better place to store your starter theme than <strong><a href="https://github.com/">GitHub</a></strong> or <strong><a href="https://bitbucket.org/">Bitbucket</a></strong>.</p>
 				</section>
@@ -405,12 +416,15 @@ add_filter( 'tiny_mce_before_init', 'unhide_kitchensink' );
 				</section>
 
 				<section>
-					<h3>Task runners perform tasks that you configure in your <strong>gulpfile.js</strong>.</h3>
+					<h3>Gulp performs tasks that you configure in your <strong>gulpfile.js</strong>.</h3>
 				</section>
 
 				<section>
-					<h2>Gulp runs in your theme directory.</h2>
-					<h3>All you need is a <strong>gulpfile.js</strong> and a <strong>package.json</strong>.</h3>
+					<h3>Your <strong>package.json</strong> file contains a list of your project's dependencies (aka Gulp plugins).</h3>
+				</section>
+
+				<section>
+					<h3>Gulp should run in your theme directory, not in the root directory of your WP installation.</h3>
 				</section>
 
 				<section>
@@ -468,7 +482,7 @@ gulp.task('sass', function() {
 				</section>
 
 				<section>
-					<h3>Takes this...</h3>
+					<h3>Takes this CSS...</h3>
 <pre><code class="css">
 .thing-with-columns {
 	column-count: 3;
@@ -476,11 +490,11 @@ gulp.task('sass', function() {
 }
 
 </code></pre>
-					<h3 class="fragment">...checks caniuse.com for browser support...</h3>
+					<h3 class="fragment">...checks <a href="http://caniuse.com">caniuse.com</a> for browser support...</h3>
 				</section>
 
 				<section>
-					<h3>And gives you this.</h3>
+					<h3>And gives you this:</h3>
 <pre><code class="css">
 .thing-with-columns {
 	-webkit-column-count: 3;
@@ -491,12 +505,13 @@ gulp.task('sass', function() {
 	column-gap: 40px
 }
 
-</code></pre>					
+</code></pre>
+				<h3 class="fragment">:D</h3>					
 				</section>
 
 				<section>
-					<h2>How to run the task</h2>
-					<p>Type <code>gulp sass</code> in your Terminal window.</p>
+					<h2>How to run gulp tasks</h2>
+					<p>Type <code>gulp [taskname]</code> in your Terminal window.</p>
 				</section>
 
 				<section>
@@ -629,7 +644,7 @@ gulp.task('images', function() {
 
 				<section>
 					<img src="img/prepros.jpg" alt="" class="noborder" width="800">
-					<h3>Prepros<br>(Mac, Windows and Linux)</h3>
+					<h3>Prepros<br>(Mac, Windows, Linux)</h3>
 				</section>
 
 				<section>
@@ -638,7 +653,7 @@ gulp.task('images', function() {
 				</section>
 
 				<section>
-					<h3>Like Gulp/Grunt, CodeKit or Prepros watches your <strong>theme directory</strong></h3>
+					<h3>Like Gulp/Grunt, CodeKit/Prepros also watches your <strong>theme directory</strong></h3>
 				</section>
 
 				<section>
@@ -810,7 +825,7 @@ Description: The fakest theme in all the land
 <pre><code class="css">
 	.sidebar {
 	    width: 36.734693878%; /* 360px / 980px */
-	    font-size: 1.25em; /* 20px / 16px */
+	    font-size: 1.3125em; /* 21px / 16px */
 	}
 
 </code></pre>
@@ -822,7 +837,7 @@ Description: The fakest theme in all the land
 <pre><code class="css">
 	.sidebar {
 	    width: 360px / 980px * 100%;
-	    font-size: 20px / 16px * 1em;
+	    font-size: 21px / 16px * 1em;
 	}
 
 </code></pre>
@@ -845,6 +860,11 @@ Description: The fakest theme in all the land
 					<!-- <h2 class="label"><span>Me upon integrating Sass with WP</span></h2> -->
 				</section>
 
+				<section>
+					<h2>Using Sass in your WordPress theme</h2>
+					<h3>style.scss &rarr; style.css</h3>
+				</section>
+
 				<section data-background="img/swirl2teal.jpg" data-state="white-text">
 					<h1>Workflow improvement #5</h1>
 					<h2>Deploying with Git</h2>
@@ -853,7 +873,7 @@ Description: The fakest theme in all the land
 				<section>
 					<h2>Before Git...</h2>
 					<div class="fragment">
-						<img src="img/ftp.png" alt="" class="noborder" width="500">
+						<img src="img/ftp.jpg" alt="" class="noborder" width="500">
 						<h3>...deploying sites and making changes via FTP was a big pain.</h3>
 					</div>
 				</section>
@@ -883,9 +903,10 @@ Description: The fakest theme in all the land
 				<section>
 					<h3>This is awesome because:</h3>
 					<ul>
-						<li class="fragment">Really easy (once you're used to it)</li>
-						<li class="fragment">Very quick</li>
+						<li class="fragment">Really easy (well, once you're used to it)</li>
+						<li class="fragment">Much faster uploads</li>
 						<li class="fragment">Never have to remember which files you changed</li>
+						<li class="fragment">Super easy to keep all copies in sync</li>
 					</ul>
 				</section>
 
@@ -897,8 +918,8 @@ Description: The fakest theme in all the land
 					<h3>A few options</h3>
 					<ol>
 						<li>Choose a host with Git support built in (e.g. <a href="http://wpengine.com/">WP Engine</a>)</li>
-						<li>If you're using a more average host, use a service like <a href="https://www.deployhq.com/">Deploy</a> or <a href="http://beanstalkapp.com/">Beanstalk</a> that FTPs changed files for you when you push to Git</li>
-						<li>If your web host allows SSH access, set it up yourself via command line (e.g. <a href="http://www.arlocarreon.com/blog/git/push-git-repo-into-shared-hosting-account-like-hostgator/">Hostgator</a>, <a href="https://www.youtube.com/watch?v=2q8cW9mQtOM">Bluehost</a>)</li>
+						<li>If you're using a more usual shared host, use a service like <a href="https://www.deployhq.com/">Deploy</a> or <a href="http://beanstalkapp.com/">Beanstalk</a> that FTPs changed files for you when you push to Git</li>
+						<li>If your web host allows SSH access (e.g. <a href="http://www.arlocarreon.com/blog/git/push-git-repo-into-shared-hosting-account-like-hostgator/">Hostgator</a>, <a href="https://www.youtube.com/watch?v=2q8cW9mQtOM">Bluehost</a>), set it up yourself via command line</li>
 					</ol>
 				</section>
 
@@ -916,6 +937,15 @@ Description: The fakest theme in all the land
 				</section>
 
 				<section>
+					<h3>WordPress-specific Git resources</h3>
+					<ul>
+						<li><a href="http://roybarber.com/version-controlling-wordpress/">Version Controlling WordPress</a></li>
+						<li><a href="http://plausiblethought.net/wordpress-git-workflow/">A WordPress &amp; Git Workflow</a>  </li>
+						<li><a href="http://code.tutsplus.com/tutorials/wordpress-development-and-deployment-with-mamp-git-and-dropbox--wp-25718">WordPress Development and Deployment With MAMP, Git and Dropbox</a></li>
+					</ul>
+				</section>
+
+				<section>
 					<h3>If GUIs are more your style</h3>
 					<ul>
 						<li> <a href="https://mac.github.com/">GitHub for Mac</a> / <a href="https://windows.github.com/">GitHub for Windows</a> (free, and can be used with non-GitHub remotes)</li>
@@ -926,10 +956,11 @@ Description: The fakest theme in all the land
 				<section>
 					<h3>If deploying with Git seems too complex for now...</h3>
 					<p>Consider storing your client projects in private repositories to start.</p>
+					<p class="fragment">Builds good habits and makes it easier to collaborate with other developers.</p>
 				</section>
 
 				<section>
-					<img src="img/bitbucket-loggedout.png" alt="" class="noborder">
+					<img src="img/bitbucket-loggedout.jpg" alt="" class="noborder">
 					<h4>My Bitbucket account - public view</h4>
 				</section>
 
@@ -950,19 +981,8 @@ Description: The fakest theme in all the land
 					</ul>
 				</section>
 
-				<!-- <section>
-					<blockquote>
-						Be not afraid of going slowly; be afraid only of standing still<br>
-						<small>Chinese proverb</small>
-					</blockquote>
-				</section> -->
-
-				<section>
-					<h1>Questions?</h1>
-				</section>
-
 				<section data-background="img/swirl.jpg" data-background-repeat="repeat" data-state="white-text">
-					<h1>Thanks!</h1>
+					<h1>Thanks!<br>Any questions?</h1>
 					<h4 style="margin-top:100px;"><a style="color:white;" href="http://twitter.com/daraskolnick">@daraskolnick</a></h4>
 					<h4><a style="color:white;" href="http://daraskolnick.com">daraskolnick.com</a></h4>
 				</section>
